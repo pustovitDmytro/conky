@@ -4,35 +4,34 @@
 -- CPU,PAM,Disk,Swap,Top Processes, Network  --
 -- --------------------------------------------
 conky.config = {
+    -- system
     background = false,
     alignment = "top_right",
-    cpu_avg_samples = 2,
-    net_avg_samples = 2,
-    default_color = "white",
-    default_shade_color = "black",
-    draw_borders = false,
-    draw_graph_borders = false,
-    draw_shades = true,
     double_buffer = true,
+    -- position
     gap_x = 0,
     gap_y = 0,
+    -- own_window properties
     own_window = true,
     own_window_type = "dock",
     own_window_hints = 'undecorated,below,sticky,skip_taskbar',
-    -- own_window_hints = undecorated,below,sticky,skip_taskbar = skip_pager,
-    -- own_window_transparent = true,
-    -- own_window_hints = undecorated,
     own_window_colour = "000000",
     own_window_argb_visual = true,
     own_window_argb_value = 40,
+    -- components
+    draw_shades = true,
+    draw_graph_borders = false,
+    cpu_avg_samples = 2,
+    net_avg_samples = 2,
     -- minimum_size = 495 700,
     maximum_width = 505,
     update_interval = 5,
-    show_graph_scale = false,
-    show_graph_range = false,
     use_xft = true,
     xftalpha = 0.1,
     -- xftfont Magnolia Script:size = 10,
+    -- colors
+    default_color = "white",
+    default_shade_color = "black",
     color0 = "53da61",
     color1 = "FFA300"
 --     template0 = [[${voffset 10}${offset 10}${color EAEAEA}${font Janda Cheerful Script:pixelsize=120}${time %H:%M}
