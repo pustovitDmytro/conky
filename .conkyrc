@@ -31,7 +31,7 @@ conky.config = {
     -- colors
     default_color = "white",
     default_shade_color = "black",
-    color0 = "53da61",
+    color0 = "00FF00",
     color1 = "FFA300"
 };
 conky.text = [[
