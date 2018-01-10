@@ -27,56 +27,22 @@ conky.config = {
     maximum_width = 505,
     update_interval = 5,
     use_xft = true,
+    font = "Magnolia Script:size=10",
     xftalpha = 0.1,
-    -- xftfont Magnolia Script:size = 10,
     -- colors
     default_color = "white",
     default_shade_color = "black",
     color0 = "53da61",
     color1 = "FFA300"
---     template0 = [[${voffset 10}${offset 10}${color EAEAEA}${font Janda Cheerful Script:pixelsize=120}${time %H:%M}
--- ${voffset -225}${alignr 10}${font Hitch Hike:pixelsize=60}${time %d}${font Hitch Hike:pixelsize=45}${time  %B} ${time %Y}
--- ${voffset -5}${alignr 20}${color1}${font Lemon Tuesday:pixelsize=60}${time %A}${font}]],
---     template1 = [[${voffset 130}${color1}CPU usage: ${color0}${cpu cpu0}%  ${color1}Cpu: ${cpubar cpu0 15,130}  cpu1: ${cpubar cpu1 15,40} cpu2: ${cpubar cpu2 15,40}
--- ${hr 1}$color
--- ${offset 170}${voffset -5}${cpugraph cpu0 80,310 -t -l}
--- ${color0}${voffset -85}Температура: $color ${acpitemp}°C${goto 116}${voffset 8}${offset 100}${cpu cpu0}% ${color0}${goto 116}${offset 100}${voffset 13}CPU1$color${goto 191}${offset 100}${voffset -12}${cpu cpu1}% ${color0}${goto 191}${offset 100}${voffset 12}CPU2$color
--- ${color0}${voffset -16}Процесів:$color $processes
--- ${color0}${voffset 6}Запущено: $color  $running_processes
--- ${color0}${voffset 6}Частота:$color ${freq}MHz
--- ${color0}${voffset 6}Середнє навантаження:$color ${loadavg}]],
---     template2 = [[${color1}${voffset 2}${hr 1}
--- ${offset 170}${voffset -5}${memgraph 60,310}
--- ${color0}${voffset -70}RAM $color${memperc}%
--- ${color0}DISK $color${fs_used_perc /}%
--- ${color0}Swap $color${swapperc}%]],
---     template3 = [[${color1}${voffset 5}${hr 1}
--- ${color0}${voffset 2}NAME${goto 115}CPU%${goto 164}PID${goto 350}NAME${goto 455}RAM$color${voffset 5}
--- ${top name 1}${goto 115}${top cpu 1}${goto 160}${top pid 1}${color1}${goto 350}${top_mem name 1}${goto 455}${top_mem mem_res 1}$color
--- ${top name 2}${goto 115}${top cpu 2}${goto 160}${top pid 2}${color1}${goto 350}${top_mem name 2}${goto 455}${top_mem mem_res 2}$color
--- ${top name 3}${goto 115}${top cpu 3}${goto 160}${top pid 3}${color1}${goto 350}${top_mem name 3}${goto 455}${top_mem mem_res 3}$color
--- ${top name 4}${goto 115}${top cpu 4}${goto 160}${top pid 4}${color1}${goto 350}${top_mem name 4}${goto 455}${top_mem mem_res 4}]],
---     template4 = [[${color1}${voffset 5}${hr 1}$color
--- ${offset 250}${downspeedgraph wlx18a6f71a84cf 40,200 324D23 77B753 -l}
--- ${voffset -40}${color0}IP Адреса: $color${addrs wlx18a6f71a84cf}
--- ${color0}Зовнішня IP: $color${execpi 3600 wget -q -O /dev/stdout http://checkip.dyndns.org/ | cut -d : -f 2- | cut -d \< -f -1}
--- ${color0}MAC адреса: $color ${wireless_ap wlx18a6f71a84cf}
--- ${color0}Якість зв''язку: $color${wireless_link_qual_perc wlx18a6f71a84cf}%
--- ${color0}Бітрейт: $color${wireless_bitrate wlx18a6f71a84cf}
--- ${offset 250}${upspeedgraph wlx18a6f71a84cf 40,200 4B1B0C FF5C2B -l}
--- ${voffset -50}${color0}Завантаження: $color${downspeed wlx18a6f71a84cf}
--- ${color0}Відвантаження: $color${upspeed wlx18a6f71a84cf}
--- ${color0}Загалом Завантажено:$color${totaldown wlx18a6f71a84cf}
--- ${color0}Загалом Відвантажено:$color${totalup wlx18a6f71a84cf}]]
 };
 conky.text = [[
 ${voffset 10}${offset 10}${color EAEAEA}${font Janda Cheerful Script:pixelsize=120}${time %H:%M}
 ${voffset -225}${alignr 10}${font Hitch Hike:pixelsize=60}${time %d}${font Hitch Hike:pixelsize=45}${time  %B} ${time %Y}
 ${voffset -5}${alignr 20}${color1}${font Lemon Tuesday:pixelsize=60}${time %A}${font}
 
--- #----------------------------------------------------------------------------------------------------------------------------------------
--- #					           CPU usage
--- #----------------------------------------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------
+#					           CPU usage
+# --------------------------------------------------------------------------------
 ${voffset 130}${color1}CPU usage: ${color0}${cpu cpu0}%  ${color1}Cpu: ${cpubar cpu0 15,130}  cpu1: ${cpubar cpu1 15,40} cpu2: ${cpubar cpu2 15,40}
 ${hr 1}$color
 ${offset 170}${voffset -5}${cpugraph cpu0 80,310 -t -l}
@@ -85,26 +51,26 @@ ${color0}${voffset -16}Процесів:$color $processes
 ${color0}${voffset 6}Запущено: $color  $running_processes
 ${color0}${voffset 6}Частота:$color ${freq}MHz
 ${color0}${voffset 6}Середнє навантаження:$color ${loadavg}
--- #----------------------------------------------------------------------------------------------------------------------------------------
--- #					DISK/RAM/SWAP usage
--- #----------------------------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------
+# 					DISK/RAM/SWAP usage
+# -------------------------------------------------------------------------------
 ${color1}${voffset 2}${hr 1}
 ${offset 170}${voffset -5}${memgraph 60,310}
 ${color0}${voffset -70}RAM $color${memperc}%
 ${color0}DISK $color${fs_used_perc /}%
 ${color0}Swap $color${swapperc}%
--- #----------------------------------------------------------------------------------------------------------------------------------------
--- #					   Running processes
--- #----------------------------------------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------
+# 					   Running processes
+# --------------------------------------------------------------------------------
 ${color1}${voffset 5}${hr 1}
 ${color0}${voffset 2}NAME${goto 115}CPU%${goto 164}PID${goto 350}NAME${goto 455}RAM$color${voffset 5}
 ${top name 1}${goto 115}${top cpu 1}${goto 160}${top pid 1}${color1}${goto 350}${top_mem name 1}${goto 455}${top_mem mem_res 1}$color
 ${top name 2}${goto 115}${top cpu 2}${goto 160}${top pid 2}${color1}${goto 350}${top_mem name 2}${goto 455}${top_mem mem_res 2}$color
 ${top name 3}${goto 115}${top cpu 3}${goto 160}${top pid 3}${color1}${goto 350}${top_mem name 3}${goto 455}${top_mem mem_res 3}$color
 ${top name 4}${goto 115}${top cpu 4}${goto 160}${top pid 4}${color1}${goto 350}${top_mem name 4}${goto 455}${top_mem mem_res 4}
- -- #----------------------------------------------------------------------------------------------------------------------------------------
--- #						Network
--- #----------------------------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------
+# 						Network
+# -------------------------------------------------------------------------------
 ${color1}${voffset 5}${hr 1}$color
 ${offset 250}${downspeedgraph wlx18a6f71a84cf 40,200 324D23 77B753 -l}
 ${voffset -40}${color0}IP Адреса: $color${addrs wlx18a6f71a84cf}
