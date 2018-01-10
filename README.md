@@ -2,6 +2,8 @@
 
 ## My conky widget
 
+> This branch is for old version (1.9 and earlier) of conky. The new configfile uses Lua syntax.
+
 ## Installing Conky
 ```bash
 $ sudo apt update
