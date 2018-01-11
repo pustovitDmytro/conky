@@ -17,6 +17,28 @@ local function insertVariables(s)
     end)
 end
 
+local function insertAdd(s)
+    return s:gsub('(%d+)+(%d+)', function(a,b)
+        return a+b
+    end)
+end
+
+local function insertMinus(s)
+    return s:gsub('(%d+)-(%d+)', function(a,b)
+        return a-b
+    end)
+end
+
+local function insertMult(s)
+    return s:gsub('(%d+)*(%d+)', function(a,b)
+        return a*b
+    end)
+end
+
+local function arifmetic(s)
+    return insertMinus(insertAdd(insertMult(s)))
+end
+
 conky.config = {
     -- system
     background = false,
@@ -79,10 +101,10 @@ ${color0}Swap $color${swapperc}%
 # --------------------------------------------------------------------------------
 ${color1}${voffset 5}${hr 1}
 ${color0}${voffset 2}NAME${goto 115}CPU%${goto 164}PID${goto 350}NAME${goto 455}RAM$color${voffset 5}
-${top name 1}${goto #{topBig}}${top cpu 1}${goto 120+50}${top pid 1}${color1}${goto #{topBig}+2*#{topSml}}${top_mem name 1}${goto 2*#{topBig}+2*#{topSml}}${top_mem mem_res 1}$color
-${top name 2}${goto #{topBig}}${top cpu 2}${goto 120+50}${top pid 2}${color1}${goto #{topBig}+2*#{topSml}}${top_mem name 2}${goto 2*#{topBig}+2*#{topSml}}${top_mem mem_res 2}$color
-${top name 3}${goto #{topBig}}${top cpu 3}${goto 120+50}${top pid 3}${color1}${goto #{topBig}+2*#{topSml}}${top_mem name 3}${goto 2*#{topBig}+2*#{topSml}}${top_mem mem_res 3}$color
-${top name 4}${goto #{topBig}}${top cpu 4}${goto 120+50}${top pid 4}${color1}${goto #{topBig}+2*#{topSml}}${top_mem name 4}${goto 2*#{topBig}+2*#{topSml}}${top_mem mem_res 4}
+${top name 1}${goto #{topBig}}${top cpu 1}${goto #${topBig}+#${topSml}}${top pid 1}${color1}${goto #{topBig}+2*#{topSml}}${top_mem name 1}${goto 2*#{topBig}+2*#{topSml}}${top_mem mem_res 1}$color
+${top name 2}${goto #{topBig}}${top cpu 2}${goto #${topBig}+#${topSml}}${top pid 2}${color1}${goto #{topBig}+2*#{topSml}}${top_mem name 2}${goto 2*#{topBig}+2*#{topSml}}${top_mem mem_res 2}$color
+${top name 3}${goto #{topBig}}${top cpu 3}${goto #${topBig}+#${topSml}}${top pid 3}${color1}${goto #{topBig}+2*#{topSml}}${top_mem name 3}${goto 2*#{topBig}+2*#{topSml}}${top_mem mem_res 3}$color
+${top name 4}${goto #{topBig}}${top cpu 4}${goto #${topBig}+#${topSml}}${top pid 4}${color1}${goto #{topBig}+2*#{topSml}}${top_mem name 4}${goto 2*#{topBig}+2*#{topSml}}${top_mem mem_res 4}
 # -------------------------------------------------------------------------------
 # 						Network
 # -------------------------------------------------------------------------------
@@ -100,4 +122,4 @@ ${color0}Загалом Завантажено:$color${totaldown #{netw}}
 ${color0}Загалом Відвантажено:$color${totalup #{netw}}
 ]]
 
-conky.text = insertVariables(text)
+conky.text = arifmetic(insertVariables(text))
