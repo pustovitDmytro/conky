@@ -3,7 +3,7 @@
 -- Components: Time, Date, DayofWeak,        --
 -- CPU,PAM,Disk,Swap,Top Processes, Network  --
 -- --------------------------------------------
-netw = 'wlx18a6f71a8-4cf'
+netw = 'wlx18a6f71a84cf'
 variables = {
     netw = 'wlp2s0'
 }
@@ -23,6 +23,7 @@ conky.config = {
     -- position
     gap_x = 0,
     gap_y = 0,
+    maximum_width = 450,
     -- own_window properties
     own_window = true,
     own_window_type = "dock",
@@ -34,7 +35,7 @@ conky.config = {
     draw_shades = true,
     draw_graph_borders = false,
     cpu_avg_samples = 10,
-    net_avg_samples = 2,
+    net_avg_samples = 10,
     -- xft
     use_xft = true,
     font = "Magnolia Script:size=10",
