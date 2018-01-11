@@ -3,6 +3,17 @@
 -- Components: Time, Date, DayofWeak,        --
 -- CPU,PAM,Disk,Swap,Top Processes, Network  --
 -- --------------------------------------------
+netw = 'wlx18a6f71a8-4cf'
+variables = {
+    netw = 'wlp2s0'
+}
+
+local function insertVariables(s)
+    return s:gsub('(#%b{})', function (w)
+        return variables[w:sub(3, -2)] or w
+    end)
+end
+
 conky.config = {
     -- system
     background = false,
@@ -18,11 +29,11 @@ conky.config = {
     own_window_hints = 'undecorated,below,sticky,skip_taskbar',
     own_window_colour = "000000",
     own_window_argb_visual = true,
-    own_window_argb_value = 40,
+    own_window_argb_value = 50,
     -- components
     draw_shades = true,
     draw_graph_borders = false,
-    cpu_avg_samples = 2,
+    cpu_avg_samples = 10,
     net_avg_samples = 2,
     -- xft
     use_xft = true,
@@ -34,7 +45,8 @@ conky.config = {
     color0 = "00FF00",
     color1 = "FFA300"
 };
-conky.text = [[
+
+text =[[
 ${voffset 10}${offset 10}${color EAEAEA}${font Janda Cheerful Script:pixelsize=120}${time %H:%M}
 ${voffset -225}${alignr 10}${font Hitch Hike:pixelsize=60}${time %d}${font Hitch Hike:pixelsize=45}${time  %B} ${time %Y}
 ${voffset -5}${alignr 20}${color1}${font Lemon Tuesday:pixelsize=60}${time %A}${font}
@@ -71,15 +83,17 @@ ${top name 4}${goto 115}${top cpu 4}${goto 160}${top pid 4}${color1}${goto 350}$
 # 						Network
 # -------------------------------------------------------------------------------
 ${color1}${voffset 5}${hr 1}$color
-${offset 250}${downspeedgraph wlx18a6f71a84cf 40,200 324D23 77B753 -l}
-${voffset -40}${color0}IP Адреса: $color${addrs wlx18a6f71a84cf}
+${offset 250}${downspeedgraph #{netw} 40,200 324D23 77B753 -l}
+${voffset -40}${color0}IP Адреса: $color${addrs #{netw}}
 ${color0}Зовнішня IP: $color${execpi 3600 wget -q -O /dev/stdout http://checkip.dyndns.org/ | cut -d : -f 2- | cut -d \< -f -1}
-${color0}MAC адреса: $color ${wireless_ap wlx18a6f71a84cf}
-${color0}Якість зв''язку: $color${wireless_link_qual_perc wlx18a6f71a84cf}%
-${color0}Бітрейт: $color${wireless_bitrate wlx18a6f71a84cf}
-${offset 250}${upspeedgraph wlx18a6f71a84cf 40,200 4B1B0C FF5C2B -l}
-${voffset -50}${color0}Завантаження: $color${downspeed wlx18a6f71a84cf}
-${color0}Відвантаження: $color${upspeed wlx18a6f71a84cf}
-${color0}Загалом Завантажено:$color${totaldown wlx18a6f71a84cf}
-${color0}Загалом Відвантажено:$color${totalup wlx18a6f71a84cf}
+${color0}MAC адреса: $color ${wireless_ap #{netw}}
+${color0}Якість зв''язку: $color${wireless_link_qual_perc #{netw}}%
+${color0}Бітрейт: $color${wireless_bitrate #{netw}}
+${offset 250}${upspeedgraph #{netw} 40,200 4B1B0C FF5C2B -l}
+${voffset -50}${color0}Завантаження: $color${downspeed #{netw}}
+${color0}Відвантаження: $color${upspeed #{netw}}
+${color0}Загалом Завантажено:$color${totaldown #{netw}}
+${color0}Загалом Відвантажено:$color${totalup #{netw}}
 ]]
+
+conky.text = insertVariables(text)
