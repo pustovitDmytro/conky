@@ -58,7 +58,7 @@ conky.config = {
     own_window_argb_value = 50,
     -- components
     draw_shades = true,
-    draw_graph_borders = false,
+    draw_graph_borders = true,
     cpu_avg_samples = 10,
     net_avg_samples = 10,
     -- xft
@@ -68,34 +68,34 @@ conky.config = {
     -- colors
     default_color = "white",
     default_shade_color = "black",
-    color0 = "00FF00",
-    color1 = "FFA300"
+    color0 = "#00FF00",
+    color1 = "#FFA300"
 };
 
 text =[[
 ${voffset 10}${offset 10}${color EAEAEA}${font Janda Cheerful Script:pixelsize=120}${time %H:%M}
 ${voffset -225}${alignr 10}${font Hitch Hike:pixelsize=60}${time %d}${font Hitch Hike:pixelsize=45}${time  %B} ${time %Y}
 ${voffset -5}${alignr 20}${color1}${font Lemon Tuesday:pixelsize=60}${time %A}${font}
-
 # --------------------------------------------------------------------------------
 #					           CPU usage
 # --------------------------------------------------------------------------------
-${voffset 130}${color1}CPU usage: ${color0}${cpu cpu0}%  ${color1}Cpu: ${cpubar cpu0 15,130}  cpu1: ${cpubar cpu1 15,40} cpu2: ${cpubar cpu2 15,40}
-${hr 1}$color
-${offset 170}${voffset -5}${cpugraph cpu0 80,310 -t -l}
-${color0}${voffset -85}Температура: $color ${acpitemp}°C${goto 116}${voffset 8}${offset 100}${cpu cpu0}% ${color0}${goto 116}${offset 100}${voffset 13}CPU1$color${goto 191}${offset 100}${voffset -12}${cpu cpu1}% ${color0}${goto 191}${offset 100}${voffset 12}CPU2$color
-${color0}${voffset -16}Процесів:$color $processes
+${color1}${voffset 200}${hr 1}
+${color0}${voffset 6}Температура: $color ${acpitemp}°C
+${color0}${voffset 6}CPU usage:$color ${cpu cpu0}%
+${color0}${voffset 6}Процесів:$color $processes
 ${color0}${voffset 6}Запущено: $color  $running_processes
 ${color0}${voffset 6}Частота:$color ${freq}MHz
 ${color0}${voffset 6}Середнє навантаження:$color ${loadavg}
+${offset 170}${voffset -150}${cpugraph cpu0 60,310, FFFFFF, 928E8E -t -l}
+${goto 116}${voffset 8}${offset 100}${cpu cpu1}% ${color0}${goto 116}${offset 100}${voffset 13}CPU1$color${goto 191}${offset 100}${voffset -12}${cpu cpu2}% ${color0}${goto 191}${offset 100}${voffset 12}CPU2$color
 # -------------------------------------------------------------------------------
 # 					DISK/RAM/SWAP usage
 # -------------------------------------------------------------------------------
-${color1}${voffset 2}${hr 1}
-${offset 170}${voffset -5}${memgraph 60,310}
+${color1}${voffset 20}${hr 1}
 ${color0}${voffset -70}RAM $color${memperc}%
 ${color0}DISK $color${fs_used_perc /}%
 ${color0}Swap $color${swapperc}%
+${offset 170}${voffset -5}${memgraph 60,310 FBFD0F F40202}
 # --------------------------------------------------------------------------------
 # 					   Running processes
 # --------------------------------------------------------------------------------
