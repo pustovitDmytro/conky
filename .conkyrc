@@ -58,7 +58,7 @@ conky.config = {
     own_window_argb_value = 50,
     -- components
     draw_shades = true,
-    draw_graph_borders = true,
+    draw_graph_borders = false,
     cpu_avg_samples = 10,
     net_avg_samples = 10,
     -- xft
