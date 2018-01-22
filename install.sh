@@ -7,18 +7,15 @@ rm -f ~/.config/conkystartup.sh
 
 cp .conkyrc ~/.config/conky/.conkyrc
 cp conkystartup.sh ~/.config/conky/conkystartup.sh
+cp .xinitrc ~/.xinitrc
+ln -s ~/.xinitrc ~/.xsession
+chmod +x ~/.xinitrc
 
-# echo 'files were copied to ~/.config/conky'
-# echo 'to start conky now try'
-# echo -e 'conky -c ~/.config/conky\n'
+# cp conkystartup.sh /etc/init.d/conkyCustom
+# chmod a+x /etc/init.d/conkyCustom
+# update-rc.d conkyCustom defaults
 
-# cd ~/.config/conky
-cp conkystartup.sh /etc/init.d/conkyCustom
-
-chmod a+x /etc/init.d/conkyCustom
-
-
-update-rc.d conkyCustom defaults
+chmod +x ~/.xinitrc
 
 echo 'done'
 # echo 'to add conky to startUp add line'
