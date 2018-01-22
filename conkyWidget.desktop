@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Conky Widget
+Comment=Skype Internet Telephony
+Exec=/etc/init.d/conkyCustom
+Icon=skypeforlinux
+Terminal=false
+Type=Application
+StartupNotify=false
+X-GNOME-Autostart-enabled=true

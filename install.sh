@@ -8,7 +8,7 @@ rm -f ~/.config/conkystartup.sh
 cp .conkyrc ~/.config/conky/.conkyrc
 cp conkystartup.sh ~/.config/conky/conkystartup.sh
 cp .xinitrc ~/.xinitrc
-ln -s ~/.xinitrc ~/.xsession
+# ln -s ~/.xinitrc ~/.xsession
 chmod +x ~/.xinitrc
 
 # cp conkystartup.sh /etc/init.d/conkyCustom
