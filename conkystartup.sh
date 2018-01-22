@@ -11,4 +11,4 @@
 
 echo "Try run conky" >> /var/log/test.log
 sleep 10
-conky -d -q -c ~/.config/conky/.conkyrc >> /var/log/test.log &
+conky -d -q -c /home/dima/.config/conky/.conkyrc &
