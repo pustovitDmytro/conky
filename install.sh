@@ -4,29 +4,28 @@ set -e
 CONFIG_DIR=~/.config/conky
 SRC_DIR='autostart'
 
-mkdir -p ${CONFIG_DIR}
+if [ -d $CONFIG_DIR ]; then
+    echo $CONFIG_DIR 'not empty'
+    rm -rf $CONFIG_DIR
+    echo $CONFIG_DIR 'burned to the ground'
+fi
 
-rm -f ${CONFIG_DIR}/.conkyrc
-rm -f ${CONFIG_DIR}/conkyWidget.desktop
+mkdir -p ${CONFIG_DIR}
 
 cp .conkyrc ${CONFIG_DIR}/.conkyrc
 cp ${SRC_DIR}/conkyWidget.desktop ${CONFIG_DIR}/conkyWidget.desktop
+cp ${SRC_DIR}/.xinitrc ${CONFIG_DIR}/.xinitrc-example
 
-echo 'FILES WERE COPIED TO' $CONFIG_DIR
+echo 'files were copied to' $CONFIG_DIR
 
-
-# cp .xinitrc ~/.xinitrc
-# ln -s ~/.xinitrc ~/.xsession
-# chmod +x ~/.xinitrc
-
-# cp conkystartup.sh /etc/init.d/conkyCustom
-# chmod a+x /etc/init.d/conkyCustom
-# update-rc.d conkyCustom defaults
-
-# chmod +x ~/.xinitrc
+    if [ ! -f ~/.xinitrc ]; then
+        cp ${SRC_DIR}/.xinitrc ~/.xinitrc
+        chmod +x ~/.xinitrc
+        if [ ! -f ~/.xsession ]; then
+            ln -s ~/.xinitrc ~/.xsession
+        else echo 'file ~/.xsession exist, can not create symlink'
+        fi
+    else echo 'file ~/.xinitrc exist'
+    fi
 
 echo 'done'
-# echo 'to add conky to startUp add line'
-# echo 'sh ~/.config/conky/conkystartup.sh'
-# echo 'to file: /etc/rc.local'
-# echo 'before line exit 0'
