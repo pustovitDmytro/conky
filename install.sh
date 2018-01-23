@@ -1,21 +1,29 @@
 #!/bin/bash
 set -e
-mkdir -p ~/.config/conky
 
-rm -f ~/.config/conky.conkyrc
-rm -f ~/.config/conkystartup.sh
+CONFIG_DIR=~/.config/conky
+SRC_DIR='autostart'
 
-cp .conkyrc ~/.config/conky/.conkyrc
-cp conkystartup.sh ~/.config/conky/conkystartup.sh
-cp .xinitrc ~/.xinitrc
+mkdir -p ${CONFIG_DIR}
+
+rm -f ${CONFIG_DIR}/.conkyrc
+rm -f ${CONFIG_DIR}/conkyWidget.desktop
+
+cp .conkyrc ${CONFIG_DIR}/.conkyrc
+cp ${SRC_DIR}/conkyWidget.desktop ${CONFIG_DIR}/conkyWidget.desktop
+
+echo 'FILES WERE COPIED TO' $CONFIG_DIR
+
+
+# cp .xinitrc ~/.xinitrc
 # ln -s ~/.xinitrc ~/.xsession
-chmod +x ~/.xinitrc
+# chmod +x ~/.xinitrc
 
 # cp conkystartup.sh /etc/init.d/conkyCustom
 # chmod a+x /etc/init.d/conkyCustom
 # update-rc.d conkyCustom defaults
 
-chmod +x ~/.xinitrc
+# chmod +x ~/.xinitrc
 
 echo 'done'
 # echo 'to add conky to startUp add line'
