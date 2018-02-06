@@ -76,9 +76,11 @@ text =[[
 ${voffset 10}${offset 10}${color EAEAEA}${font Janda Cheerful Script:pixelsize=120}${time %H:%M}
 ${voffset -225}${alignr 10}${font Hitch Hike:pixelsize=60}${time %d}${font Hitch Hike:pixelsize=45}${time  %B} ${time %Y}
 ${voffset -5}${alignr 20}${color1}${font Lemon Tuesday:pixelsize=60}${time %A}${font}
-# --------------------------------------------------------------------------------
-#					           CPU usage
-# --------------------------------------------------------------------------------
+]] ..
+--  --------------------------------------------------------------------------------
+--  				           CPU usage                                          --
+--  --------------------------------------------------------------------------------
+[[
 ${color1}${voffset 200}${hr 1}
 ${color0}Температура: $color ${acpitemp}°C
 ${color0}CPU usage:$color ${cpu cpu0}%
@@ -89,26 +91,32 @@ ${color0}Середнє навантаження:$color ${loadavg}
 ${offset 170}${voffset -120}${cpugraph cpu0 60,310 FFFFFF 544C4C -l}
 $color${goto 320}${cpu cpu1}% ${goto 400}${cpu cpu2}%
 ${color0}${goto 320}CPU1${goto 400}CPU2
-# -------------------------------------------------------------------------------
-# 					DISK/RAM/SWAP usage
-# -------------------------------------------------------------------------------
+]] ..
+-- -------------------------------------------------------------------------------
+-- 				       	DISK/RAM/SWAP usage                                     --
+-- -------------------------------------------------------------------------------
+[[
 ${color1}${voffset 0}${hr 1}
 ${color0}RAM $color${memperc}%
 ${color0}DISK $color${fs_used_perc /}%
 ${color0}Swap $color${swapperc}%
 ${offset 150}${voffset -65}${memgraph 50,310 FBFD0F F40202 -l}
-# --------------------------------------------------------------------------------
-# 					   Running processes
-# --------------------------------------------------------------------------------
+]] ..
+-- --------------------------------------------------------------------------------
+-- 					   Running processes                                         --
+-- --------------------------------------------------------------------------------
+[[
 ${color1}${voffset -5}${hr 1}
 ${color0}${voffset 2}NAME${goto #{topBig}}CPU%${goto #{topBig}+#{topSml}}PID${goto #{topBig}+2*#{topSml}}NAME${goto 2*#{topBig}+2*#{topSml}}RAM${goto 2*#{topBig}+3*#{topSml}+3*#{topInv}}PID${voffset 5}
 $color${top name 1}${goto #{topBig}}${top cpu 1}${goto #{topBig}+#{topSml}}${top pid 1}${color1}${goto #{topBig}+2*#{topSml}}${top_mem name 1}${goto 2*#{topBig}+2*#{topSml}}${top_mem mem_res 1}${goto 2*#{topBig}+3*#{topSml}+3*#{topInv}}${top_mem pid 1}
 $color${top name 2}${goto #{topBig}}${top cpu 2}${goto #{topBig}+#{topSml}}${top pid 2}${color1}${goto #{topBig}+2*#{topSml}}${top_mem name 2}${goto 2*#{topBig}+2*#{topSml}}${top_mem mem_res 2}${goto 2*#{topBig}+3*#{topSml}+3*#{topInv}}${top_mem pid 2}
 $color${top name 3}${goto #{topBig}}${top cpu 3}${goto #{topBig}+#{topSml}}${top pid 3}${color1}${goto #{topBig}+2*#{topSml}}${top_mem name 3}${goto 2*#{topBig}+2*#{topSml}}${top_mem mem_res 3}${goto 2*#{topBig}+3*#{topSml}+3*#{topInv}}${top_mem pid 3}
 $color${top name 4}${goto #{topBig}}${top cpu 4}${goto #{topBig}+#{topSml}}${top pid 4}${color1}${goto #{topBig}+2*#{topSml}}${top_mem name 4}${goto 2*#{topBig}+2*#{topSml}}${top_mem mem_res 4}${goto 2*#{topBig}+3*#{topSml}+3*#{topInv}}${top_mem pid 4}
-# -------------------------------------------------------------------------------
-# 						Network
-# -------------------------------------------------------------------------------
+]] ..
+-- -------------------------------------------------------------------------------
+-- 					        	Network                                         --
+-- -------------------------------------------------------------------------------
+[[
 ${color1}${voffset -5}${hr 1}$color
 ${color0}IP Адреса: $color${addrs #{netw}}
 ${color0}Зовнішня IP: $color${execpi 3600 wget -q -O /dev/stdout http://checkip.dyndns.org/ | cut -d : -f 2- | cut -d \< -f -1}
