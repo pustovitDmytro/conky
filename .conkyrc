@@ -46,7 +46,7 @@ conky.config = {
     double_buffer = true,
     update_interval = 5,
     -- position
-    gap_x = 0,
+    gap_x = 500,
     gap_y = 0,
     maximum_width = 500,
     -- own_window properties
