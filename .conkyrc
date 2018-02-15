@@ -3,6 +3,13 @@
 -- Components: Time, Date, DayofWeak,        --
 -- CPU,PAM,Disk,Swap,Top Processes, Network  --
 -- --------------------------------------------
+json = require "libs/json"
+local http = require("socket.http")
+io.write('script')
+io.write(json.decode('[1,2,3,{"x":10}]')[1])
+
+os.execute('touch .file')
+
 netw = 'wlx18a6f71a84cf'
 variables = {
     netw = 'wlp2s0',
