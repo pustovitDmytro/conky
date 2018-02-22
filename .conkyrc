@@ -4,11 +4,15 @@
 -- CPU,PAM,Disk,Swap,Top Processes, Network  --
 -- --------------------------------------------
 json = require "libs/json"
-local http = require("socket.http")
 io.write('script')
 io.write(json.decode('[1,2,3,{"x":10}]')[1])
+-- set_paths.lua
+local version = _VERSION:match("%d+%.%d+")
+package.path = 'lua_modules/share/lua/' .. version .. '/?.lua;lua_modules/share/lua/' .. version .. '/?/init.lua;' .. package.path
+package.cpath = 'lua_modules/lib/lua/' .. version .. '/?.so;' .. package.cpath
 
-os.execute('touch .file')
+print(package.path)
+socket = require "socket"
 
 netw = 'wlx18a6f71a84cf'
 variables = {
