@@ -15,6 +15,7 @@ mkdir -p ${CONFIG_DIR}
 cp .conkyrc ${CONFIG_DIR}/.conkyrc
 cp ${SRC_DIR}/conkyWidget.desktop ${CONFIG_DIR}/conkyWidget.desktop-example
 cp ${SRC_DIR}/.xinitrc ${CONFIG_DIR}/.xinitrc-example
+cp ${SRC_DIR}/conky.png ${CONFIG_DIR}/icon.png
 
 echo 'files were copied to' $CONFIG_DIR
 cp ${SRC_DIR}/conkyWidget.desktop ~/.config/autostart

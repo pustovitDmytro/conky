@@ -1,8 +1,8 @@
 [Desktop Entry]
 Name=Conky Widget
 Comment=Skype Internet Telephony
-Exec=/etc/init.d/conkyCustom
-Icon=skypeforlinux
+Exec=conky -d -q -c home/dima/.config/conky/.conkyrc
+Icon=home/dima/.config/conky/icon.png
 Terminal=false
 Type=Application
 StartupNotify=false
